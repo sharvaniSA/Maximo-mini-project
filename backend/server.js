@@ -8,6 +8,9 @@ const taskRoutes = require('./routes/taskRoutes'); // Task management routes
 const authRoutes = require('./routes/auth'); // Authentication routes
 const eisenhowerRoutes = require('./routes/Eisenhower'); // Eisenhower matrix routes
 const milestoneRoutes = require('./routes/milestones');
+const priorityTaskRoutes = require('./routes/priorityTasks');
+const motivationRoutes = require('./routes/motivation');
+
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -27,8 +30,9 @@ mongoose
 app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api/tasks', taskRoutes); // Task management routes
 app.use('/api/eisenhower', eisenhowerRoutes); // Eisenhower matrix routes
+app.use('/api/motivation', motivationRoutes);  
 app.use('/api/milestones', milestoneRoutes);
-
+app.use('/api/priority-tasks', priorityTaskRoutes);
 // Profile Update Route
 app.put('/api/user/profile', async (req, res) => {
   const { userId, name, email, password } = req.body;
